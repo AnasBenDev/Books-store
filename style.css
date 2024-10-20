@@ -1,0 +1,173 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+}
+
+.menu-btn {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.menu-bar {
+    width: 30px;
+    height: 5px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: brown;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    padding: 15px;
+}
+
+.side-menu ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Category Selector */
+.category-selector {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.category-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-btn.active {
+    background-color: brown;
+}
+
+.category-btn:hover {
+    background-color: gray;
+}
+
+/* Books Section */
+.books {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.book {
+    background-color: white;
+    border: 1px solid brown;
+    padding: 10px;
+    width: 45%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.book img {
+    width: 100%;
+    height: auto;
+}
+
+.book button {
+    background-color: brown;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.book button:hover {
+    background-color: darkbrown;
+}
+
+/* Hide elements */
+.hidden {
+    display: none;
+}
+
+/* Forms (Signup/Login/Purchase) */
+form {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid brown;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid brown;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: brown;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkbrown;
+}
+
+/* Footer */
+footer {
+    background-color: brown;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .book {
+        width: 100%;
+    }
+
+    .category-selector {
+        flex-direction: column;
+        align-items: center;
+    }
+}

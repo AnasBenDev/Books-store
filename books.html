@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Books Shop</h1>
+        <div class="menu-btn" onclick="toggleMenu()">
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+        </div>
+    </header>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="devloper.html">Developer</a></li>
+            <li><a href="help.html">Help</a></li>
+            <li><a href="my_social_media.html">My Social Media</a></li>
+        </ul>
+    </div>
+
+    <!-- Category Selector -->
+    <div class="category-selector">
+        <button class="category-btn active" onclick="showCategory('1bac')">1bac</button>
+        <button class="category-btn" onclick="showCategory('tronc')">Tronc Commun</button>
+        <button class="category-btn" onclick="showCategory('2bac')">2bac</button>
+    </div>
+
+    <!-- Books Section -->
+    <div class="books" id="1bac">
+        <div class="book">
+            <img src="img/1book.jpg" alt="Book 1">
+            <h3>في رحاب التربية الإسلامية</h3>
+            <button onclick="purchaseBook('Book 1')">Buy</button>
+        </div>
+        <div class="book">
+            <img src="img/2book.jpg" alt="Book 2">
+            <h3>منار اللغة العربية</h3>
+            <button onclick="purchaseBook('Book 2')">Buy</button>
+        </div>
+        <div class="book">
+            <img src="img/3book.jpg" alt="Book 3">
+            <h3>ticket english workbook</h3>
+            <button onclick="purchaseBook('Book 3')">Buy</button>
+        </div>
+        <div class="book">
+            <img src="img/4book.jpg" alt="Book 4">
+            <h3>la boite à merveille</h3>
+            <button onclick="purchaseBook('Book 4')">Buy</button>
+        </div>
+        <div class="book">
+            <img src="img/5book.jpg" alt="Book 5">
+            <h3>منار التاريخ و الجغرافية</h3>
+            <button onclick="purchaseBook('Book 5')">Buy</button>
+        </div>
+        <div class="book">
+            <img src="img/6book.jpg" alt="Book 6">
+            <h3>في رحاب الفلسفة</h3>
+            <button onclick="purchaseBook('Book 6')">Buy</button>
+        </div>
+        <div class="book">
+            <img src="img/7book.jpg" alt="Book 7">
+            <h3>ticket to english</h3>
+            <button onclick="purchaseBook('Book 7')">Buy</button>
+        </div>
+        <div class="book">
+            <img src="img/8book.jpg" alt="Book 8">
+            <h3>غير متوفر</h3>
+            <button onclick="purchaseBook('Book 8')">Buy</button>
+        </div>
+        <div class="book">
+            <img src="img/9book.jpg" alt="Book 9">
+            <h3>غير متوفر</h3>
+            <button onclick="purchaseBook('Book 9')">Buy</button>
+        </div>
+        <div class="book">
+            <img src="img/10book.jpg" alt="Book 10">
+            <h3>غير متوفر</h3>
+            <button onclick="purchaseBook('Book 10')">Buy</button>
+        </div>
+    </div>
+
+    <!-- Tronc Commun Section -->
+    <div class="books hidden" id="tronc">
+        <p>No books available for Tronc Commun this year.</p>
+    </div>
+
+    <!-- 2bac Section -->
+    <div class="books hidden" id="2bac">
+        <p>No books available for 2bac this year.</p>
+    </div>
+
+    
+
+    <script>
+        // Function to toggle the side menu
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            if (sideMenu.style.left === '-300px') {
+                sideMenu.style.left = '0';
+            } else {
+                sideMenu.style.left = '-300px';
+            }
+        }
+
+        // Close the side menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const sideMenu = document.getElementById('sideMenu');
+            const menuBtn = document.querySelector('.menu-btn');
+            if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+                sideMenu.style.left = '-300px';
+            }
+        });
+
+        // Show the selected category and hide others
+        function showCategory(category) {
+            document.getElementById('1bac').classList.add('hidden');
+            document.getElementById('tronc').classList.add('hidden');
+            document.getElementById('2bac').classList.add('hidden');
+            
+            document.getElementById(category).classList.remove('hidden');
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            // Add active class to the selected button
+            event.target.classList.add('active');
+        }
+
+        // Purchase book function
+        function purchaseBook(bookName) {
+            localStorage.setItem('selectedBook', bookName);
+            window.location.href = 'purchase.html';
+        }
+    </script>
+</body>
+</html>
