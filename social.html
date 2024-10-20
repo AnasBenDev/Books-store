@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media</title>
+    <link rel="stylesheet" href="social.css">
+</head>
+<body>
+    <header>
+        <h1>My Social Media</h1>
+        <div class="menu-btn" onclick="toggleMenu()">
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+        </div>
+    </header>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="devloper.html">Developer</a></li>
+            <li><a href="help.html">Help</a></li>
+            <li><a href="social.html">My Social Media</a></li>
+        </ul>
+    </div>
+
+    <div class="social-media-container">
+        <h2>Follow Me on Social Media</h2>
+        <div class="social-media">
+            <a href="https://www.instagram.com/anas_edit_66/profilecard/?igsh=andtd2s1ZmcxdGs4" target="_blank" class="social-btn instagram">Instagram</a>
+            <!-- يمكنك إضافة المزيد من الأزرار لوسائل التواصل الاجتماعي الأخرى هنا -->
+        </div>
+    </div>
+
+   
+
+    <script>
+        // Function to toggle the side menu
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            if (sideMenu.style.left === '-300px') {
+                sideMenu.style.left = '0';
+            } else {
+                sideMenu.style.left = '-300px';
+            }
+        }
+
+        // Close the side menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const sideMenu = document.getElementById('sideMenu');
+            const menuBtn = document.querySelector('.menu-btn');
+            if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+                sideMenu.style.left = '-300px';
+            }
+        });
+    </script>
+</body>
+</html>

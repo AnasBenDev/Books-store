@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="purchase-container">
+        <h1>Purchase Details</h1>
+        <form id="purchaseForm">
+            <p id="selectedBook"></p>
+
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const selectedBook = localStorage.getItem('selectedBook');
+        document.getElementById('selectedBook').textContent = 'Book: ' + selectedBook;
+
+        document.getElementById('purchaseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = localStorage.getItem('email'); // Assuming the user is logged in with email
+
+            alert(`Purchase details sent:\nName: ${name}\nPhone: ${phone}\nBook: ${selectedBook}\nEmail: ${email}`);
+            // Here you can send the data to the backend or process it as needed
+        });
+    </script>
+</body>
+</html>

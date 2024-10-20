@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Data Management</h1>
+        <label for="accessCode">Enter Access Code:</label>
+        <input type="password" id="accessCode" placeholder="Enter your access code">
+        <button onclick="validateAccess()">Submit</button>
+
+        <div id="dataTable" style="display:none;">
+            <h2>Purchase Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Book Name</th>
+                        <th>Phone Number</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="dataBody">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
